@@ -1,0 +1,17 @@
+<div class="top-menu">
+   <div class="leaderboards"><a class="noto-sans-sc-normal" href="/leaderboard">Leaderboard</a></div>
+  <a href="/"><img class="logo" src="/images/logo/logo.png" alt="logo" /></a>
+  <div class="authentication">
+      <% if (locals.user) { %>
+    <form action="/logOut" method="post">
+      <button type="submit" class="logout-button">Logout</button>
+    </form>
+    <p class="noto-sans-sc-normal"><%=user.username%></p>
+    <%} else { %>
+    <div class="authentication-pair">
+      <a class="noto-sans-sc-normal" href="/login">Log In</a>
+      <a class="noto-sans-sc-normal" href="/register">Register</a>
+    </div>
+      <% } %>
+  </div>
+</div>

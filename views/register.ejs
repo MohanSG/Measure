@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header'); %>
+  <body>
+    <%- include('partials/top-menu'); %>
+    <div class="welcome-container register-container">
+      <div class="center-container">
+        <h1 class="noto-sans-sc-normal">Register</h1>
+        <div class="login-form-container">
+          <form method="post" action="/register">
+            <div class="email-div">
+              <label class="noto-sans-sc-normal" for="email"
+                ><b>Email</b></label
+              >
+              <input
+                type="text"
+                class="register-email"
+                placeholder="Enter Email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="username-div">
+              <label class="noto-sans-sc-normal" for="username"
+                ><b>Username</b></label
+              >
+              <input
+                type="text"
+                placeholder="Enter Username"
+                name="username"
+                required
+              />
+            </div>
+
+            <div class="password-div">
+              <label class="noto-sans-sc-normal" for="password"
+                ><b>Password</b></label
+              >
+              <input
+                class="passwordInput"
+                id="registerInput"
+                type="password"
+                placeholder="Enter Password"
+                name="password"
+                required
+              />
+              <span class="toggle-icon" onclick="toggleVisible()"
+                ><img
+                  class="visible-icon"
+                  src="/images/icons/eye-closed.svg"
+                  alt="visible"
+              /></span>
+            </div>
+            <div class="validation-box">
+            <ul class="noto-sans-sc-normal">
+              <li class="vl-email">Valid email address</li>
+              <li class="vl-upper">Uppercase character</li>
+              <li class="vl-lower">Lowercase character</li>
+              <li class="vl-number">Number</li>
+              <li class="vl-symbol">Symbol</li>
+              <li class="vl-length">Atleast 8 characters long</li>
+            </ul>
+          </div>
+
+            <button class="pushable noto-sans-sc-normal register-button">
+              <span class="front">Register</span>
+            </button>
+            <% if (locals.message) {%>
+            <p class="moderate"><%=message%></p>
+            <% } %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/scripts/authenticate.js"></script>
+  </body>
+</html>

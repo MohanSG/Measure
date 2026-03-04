@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header'); %>
+  <body>
+    <%- include('partials/top-menu'); %>
+    <div class="welcome-container login-container">
+      <div class="center-container">
+        <h1 class="noto-sans-sc-normal">Login</h1>
+        <div class="login-form-container">
+          <form method="post" action="/login">
+            <div class="email-div">
+              <label class="noto-sans-sc-normal" for="email"><b>Email</b></label>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="password-div">
+              <label class="noto-sans-sc-normal" for="password"><b>Password</b></label>
+              <input
+                class="passwordInput"
+                id="loginInput"
+                type="password"
+                placeholder="Password"
+                name="password"
+                required
+              />
+              <span class="toggle-icon" onclick="toggleVisible()"><img class="visible-icon" src="/images/icons/eye-closed.svg" alt="visible"/></span>
+            </div>
+
+            <button class="pushable noto-sans-sc-normal login-button">
+              <span class="front">Login</span>
+            </button>
+            <% if (locals.data) { %>
+               <p class="moderate"><%=data %></p>
+            <% } else if (message.length > 0) { %>
+                <p class="moderate"><%=message[0] %></p>
+            <% } %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/scripts/authenticate.js"></script>
+  </body>
+</html>

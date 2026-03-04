@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header'); %>
+  <body>
+    <%- include('partials/top-menu'); %>
+    <div class="leaderboard">
+      <div class="top-scorers-container">
+        <div class="noto-sans-sc-normal second-scorer bar">
+          <div class="bar-fill">
+            <h3 class="name-holder"><%= scores[1].username %></h3>
+            <img src="/images/icons/second.png" alt="second place" />
+            <h3 class="score-holder"><%= scores[1].highscore %></h3>
+          </div>
+        </div>
+        <div class="noto-sans-sc-normal first-scorer bar">
+          <div class="bar-fill">
+            <h3 class="name-holder"><%= scores[0].username %></h3>
+            <img src="/images/icons/first.png" alt="second place" />
+            <h3 class="score-holder"><%= scores[0].highscore %></h3>
+          </div>
+        </div>
+        <div class="noto-sans-sc-normal third-scorer bar">
+          <div class="bar-fill">
+            <h3 class="name-holder"><%= scores[2].username %></h3>
+            <img src="/images/icons/third.png" alt="second place" />
+            <h3 class="score-holder"><%= scores[2].highscore %></h3>
+          </div>
+        </div>
+      </div>
+      <div class="other-scorers">
+        <div class="other-center-container">
+          <% for (let i = 3; i < scores.length; i++) { %>
+          <div class="noto-sans-sc-normal score-container">
+            <div class="order-name-container"><h3 class="score-order"><%= i+1 %>.</h3> <p><%= scores[i].username %> </p></div> <h3 class="player-score"><%= scores[i].highscore %></h3>
+            </div>
+          <% } %>
+      </div>
+    </div>
+    <script src="/scripts/leaderboard.js"></script>
+  </body>
+</html>

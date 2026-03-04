@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header'); %>
+  <body>
+    <%- include('partials/top-menu'); %>
+    <!--Welcome content-->
+    <div class="welcome-container">
+      <div class="center-container">
+        <h1 class="noto-sans-sc-normal">Welcome to Measure</h1>
+        <div class="hsk-options-container">
+          <h2 class="noto-sans-sc-normal">
+            Choose the HSK levels you would like to practice
+          </h2>
+          <!-- <div class="hsk-options">
+            <div class="level">
+              <input type="checkbox" id="hsk1" name="level" value="1" />
+              <label class="noto-sans-sc-normal" for="hsk1">HSK 1</label>
+            </div>
+            <div class="level">
+              <input type="checkbox" id="hsk2" name="level" value="2" />
+              <label class="noto-sans-sc-normal" for="hsk2">HSK 2</label>
+            </div>
+            <div class="level">
+              <input type="checkbox" id="hsk3" name="level" value="3" />
+              <label class="noto-sans-sc-normal" for="hsk3">HSK 3</label>
+            </div>
+            <div class="level">
+              <input type="checkbox" id="hsk4" name="level" value="4" />
+              <label class="noto-sans-sc-normal" for="hsk4">HSK 4</label>
+            </div>
+            <div class="level">
+              <input type="checkbox" id="hsk5" name="level" value="5" />
+              <label class="noto-sans-sc-normal" for="hsk5">HSK 5</label>
+            </div>
+            <div class="level">
+              <input type="checkbox" id="hsk6" name="level" value="6" />
+              <label class="noto-sans-sc-normal" for="hsk6">HSK 6</label>
+            </div>
+            <div class="level">
+              <input type="checkbox" id="hsk7" name="level" value="7" />
+              <label class="noto-sans-sc-normal" for="hsk7">HSK 7-9</label>
+            </div>
+          </div> -->
+          <div class="hsk-slider-container">
+
+            <input
+              type="range"
+              min="1"
+              max="7"
+              step="1"
+              value="1"
+              class="hsk-slider"
+            />
+
+            <div class="hsk-ticks noto-sans-sc-normal">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7-9</span>
+            </div>
+          </div>
+
+          <button class="pushable noto-sans-sc-normal submit-levels">
+            <span class="front">Practice</span>
+          </button>
+          <button class="pushable noto-sans-sc-normal speed-button">
+            <span class="front">Speed Mode (all levels)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Main quiz content -->
+    <div class="sentence-container">
+      <div class="timer"></div>
+      <div class="sentence-div"></div>
+      <div class="buttons">
+        <button class="menu-button sound">
+          <img class="icon" src="/images/icons/music.svg" />
+        </button>
+        <button class="menu-button hints">
+          <img class="icon" src="/images/icons/language.svg" />
+        </button>
+      </div>
+      <div class="choices">
+        <button class="pushable noto-sans-sc-normal">
+          <span class="front"></span>
+        </button>
+        <button class="pushable noto-sans-sc-normal">
+          <span class="front"></span>
+        </button>
+        <button class="pushable noto-sans-sc-normal">
+          <span class="front"></span>
+        </button>
+        <button class="pushable noto-sans-sc-normal">
+          <span class="front"></span>
+        </button>
+      </div>
+    </div>
+    <!--After Quiz Content-->
+    <div class="results-container">
+      <div class="center-container">
+        <h1 class="noto-sans-sc-normal">Results</h1>
+        <div class="results-options-container">
+          <h2 class="noto-sans-sc-normal result-header">You scored 20/20!</h2>
+          <button class="pushable noto-sans-sc-normal again-button">
+            <span class="front">Try Again</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="/scripts/index.js"></script>
+  </body>
+</html>
