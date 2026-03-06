@@ -14,6 +14,14 @@
   </ul>
 </div>
 
+## References
+<ul>
+  <li>Word List - <a href="https://mandarinbean.com/">Mandarin Bean</a></li>
+  <li>3D Button Design - <a href="https://www.joshwcomeau.com/animation/3d-button/">joshwcomeau's 3d button tutorial</a></li>
+  <li>MDBG Chinese Dictionary - <a href="https://github.com/pepebecker/mdbg">pepebecker</a></li>
+  <li>Icons - <a href="https://www.flaticon.com/">Flaticon</a></li>
+</ul>
+
 ## What is measure?
 <div style="margin-bottom: 10">
 Measure is website for practicing chinese measure words. Chinese measure words are essential classifiers used between a number/denominator and a noun. Measure allows users to practice at their
@@ -210,4 +218,78 @@ export function configurePassport(db) {
 <div>
   <img height="350" alt="Screenshot 2026-03-04 153002" src="https://github.com/user-attachments/assets/dc562571-5be1-43dd-a175-089f80229b5b" />
   <img height="350" alt="Screenshot 2026-03-04 153035" src="https://github.com/user-attachments/assets/5933ab3f-f985-4781-8e69-5df64f6e841d" />
+</div>
+
+## Question Structure
+
+<div>
+  When the questions are queried from the database, the individual chinese and pinyin words are split, these are then translated using mdbg (chinese dictionary) and returned.
+  
+  ```javascript
+    //Takes each sentence and translates each word. Returns the translated sentence 
+async function translateOrder(str) {
+  let words = str.split(" "); //Split the sentence
+
+  words.forEach((word, index) => { //If there is an empty string, remove it.
+    if (word === "") {
+      words.splice(index, 1);
+    }
+  });
+
+  let translateOrder = [];
+  for (const word of words) { //Translates each word in the sentence using mdbg and returns the translated sentence in the correct order.
+    if (word !== "＿") {
+      const transl = await mdbg.getByHanzi(word);
+      const definitions = transl.definitions;
+
+      let mapped = Object.entries(definitions).map(
+        ([k, v]) => definitions[k].translations
+      );
+
+      if (mapped[0].length > 1) {
+        translateOrder.push(mapped[0].slice(0, 2).join(";"));
+      } else {
+        translateOrder.push(mapped[0][0]);
+      }
+    } else {
+      translateOrder.push("＿");
+    }
+  }
+
+  return translateOrder;
+}
+
+```
+</div>
+<div>
+  A div is then created for every word. This helps to implement the hints feature where users can hover over a word to check its meaning.
+  
+  ```javascript
+//Creates a div for each character
+function initSentenceHeader(sentence) {
+  const words = sentence.split(" ");
+
+  words.forEach((word, index) => {
+    if (word === "") {
+      words.splice(index, 1);
+    }
+  });
+
+  words.forEach((word, index) => { //For each word, create a div and a child h1.
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("wordDiv");
+
+    const wordHeader = document.createElement("h1");
+    wordHeader.innerHTML = word;
+    wordHeader.classList.add("sentence", "noto-sans-sc-normal");
+
+    newDiv.append(wordHeader); 
+    sentenceHeader.append(newDiv);
+  });
+
+  if (enableHints) { //If hints are enabled, allow the ability to see hints.
+    initHints();
+  }
+}
+  ```
 </div>
