@@ -131,7 +131,7 @@ function validateEmail(email) {
   }
 }
 
-//Checks each password requirement individually, if the requirement is satisfied, change the unordered list lest to green.
+//Checks each password requirement individually, if the requirement is satisfied, change the unordered list element color to green.
 //Only when all requirements are satisfied can the user register with this password and a valid email. 
 function checkValidation(pw) {
   if (/[A-Z]/.test(pw)) {
