@@ -22,7 +22,7 @@ very simple tool mainly used for practice rather than learning. Measure is fully
 </div>
 
 <div>
-  <img height="350" alt="Homepage" src="https://github.com/user-attachments/assets/d2b5b2c6-aa75-4de3-b7b0-fa29e90ee7f1" />
+  <img height="300" alt="Homepage" src="https://github.com/user-attachments/assets/d2b5b2c6-aa75-4de3-b7b0-fa29e90ee7f1" />
   <img height="350" alt="image" src="https://github.com/user-attachments/assets/3439e309-3d13-4391-8b94-362cdf7dbed7" />
 </div>
 
