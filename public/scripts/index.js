@@ -321,7 +321,7 @@ function initOptions(answer, characters) {
 //Creates a div for each character
 function initSentenceHeader(sentence) {
   const words = sentence.split(" ");
-  const pinyin_words = currentQuestion.pinyinSentence.split(" ");
+  //const pinyin_words = currentQuestion.pinyinSentence.split(" ");
 
   words.forEach((word, index) => {
     if (word === "") {

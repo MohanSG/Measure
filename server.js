@@ -242,16 +242,18 @@ function generateLikeClause(levels) {
   return likeClause;
 }
 
+//Takes each sentence and translates each word. Returns the translated sentence 
 async function translateOrder(str) {
-  let words = str.split(" ");
-  words.forEach((word, index) => {
+  let words = str.split(" "); //Split the sentence
+
+  words.forEach((word, index) => { //If there is an empty string, remove it.
     if (word === "") {
       words.splice(index, 1);
     }
   });
-  //console.log(words);
+
   let translateOrder = [];
-  for (const word of words) {
+  for (const word of words) { //Translates each word in the sentence using mdbg and returns the translated sentence in the correct order.
     if (word !== "＿") {
       const transl = await mdbg.getByHanzi(word);
       const definitions = transl.definitions;
@@ -269,9 +271,7 @@ async function translateOrder(str) {
       translateOrder.push("＿");
     }
   }
-  translateOrder.forEach((word) => {
-    //console.log(word);
-  });
+
   return translateOrder;
 }
 
