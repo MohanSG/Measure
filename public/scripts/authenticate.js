@@ -21,7 +21,7 @@ function toggleVisible() {
 }
 
 //Validation for passwords, one uppercase and lowercase letter, one digit, one special character and should be more than 8 characters
-function validatePassword(pw) {
+function validatePassword(pw) { 
   return (
     /[A-Z]/.test(pw) &&
     /[a-z]/.test(pw) &&
