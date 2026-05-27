@@ -6,7 +6,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import mdbg from "mdbg";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import passport from "passport";
 import flash from "connect-flash";
 import { configurePassport } from "./config/passport.js";
